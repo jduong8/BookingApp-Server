@@ -4,6 +4,7 @@
 - Utilisation d'une base de données PostgreSQL avec l'ORM Sequelize pour gérer les données.
 - Mise en place du CRUD (Create, Read, Update, Delete) et des routes pour manipuler les données.
 
+### Aperçu architecture
 ```markdown
 .
 ├── __test__
@@ -29,14 +30,15 @@ Utilisation d'un modèle MVC
 
 ## Outils utilisés
 
-- Node.js v20.0.0 ou plus récent
-- PostgreSQL v14.0.0 ou plus récent
+- **Node.js**
+- **PostgreSQL**
 - **VSCode** 
 - **TablePlus** 
 - **Postman** 
 - **brew**
 - **ohmyzsh**
 - **git/github**
+- **SourceTree**
 
 ---
 
