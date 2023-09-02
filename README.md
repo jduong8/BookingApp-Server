@@ -4,6 +4,29 @@
 - Utilisation d'une base de données PostgreSQL avec l'ORM Sequelize pour gérer les données.
 - Mise en place du CRUD (Create, Read, Update, Delete) et des routes pour manipuler les données.
 
+```markdown
+.
+├── __test__
+│   └── app.test.js
+│   └── math.js
+│   └── math.test.js
+├── controllers
+│   └── reservation.controller.js
+│   └── user.controller.js
+├── models
+│   └── reservation.model.js
+│   └── user.model.js
+│   └── room.model.js
+│   └── table.model.js
+├── routes
+│   └── reservation.js
+│   └── users.js
+├── package.json
+└── app.js
+```
+
+Utilisation d'un modèle MVC
+
 ## Outils utilisés
 
 - Node.js v20.0.0 ou plus récent
