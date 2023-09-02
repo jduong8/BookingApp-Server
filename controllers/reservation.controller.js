@@ -1,25 +1,34 @@
+/*
+Importation des dépendances et du modèle: 
+Le modèle Reservation est importé depuis le fichier db.js.
+*/
+
 const db = require('../db.js')
 const Reservation = db.reservation;
 
+// Trouver toutes les réservations (findAll):
+/*
+Cette fonction utilise la méthode findAll de Sequelize
+pour récupérer toutes les réservations et les retourne en réponse.
+*/
 exports.findAll = (req, res) => {
     Reservation.findAll().then(reservations => {
         res.send(reservations)
     })
 }
 
+// Créer une nouvelle réservation (create):
 exports.create = (req, res) => {
     const {
-        // id_user,
         number_of_customers,
         reservation_date,
         reservation_name,
         reservation_note
     } = req.body;
 
-    // if (typeof id_user !== 'number') {
-    //     return res.status(422).json({ error: "L'identifiant de l'utilisateur doit être un nombre" });
-    // }
+    // Validations des données reçues dans req.body.
     if (typeof number_of_customers !== 'number') {
+        // Si les validations échouent, une réponse avec un code d'état 422 est envoyée.
         return res.status(422).json({ error: "Le nombre de personne doit être un nombre" });
     }
     if (typeof reservation_date !== 'string') {
@@ -32,6 +41,7 @@ exports.create = (req, res) => {
         return res.status(422).json({ error: "Les notes doivent être une chaine de caractères" });
     }
 
+    // Sinon, une nouvelle réservation est créée avec un statut de réservation de 1.
     Reservation.create({
         number_of_customers: number_of_customers,
         reservation_date: reservation_date,
@@ -43,7 +53,12 @@ exports.create = (req, res) => {
     });
 };
 
-
+// Mettre à jour une réservation existante (update):
+/*
+    Cette fonction met à jour une réservation existante en utilisant l'identifiant (id)
+    fourni dans les paramètres de la requête (req.params).
+    La méthode update de Sequelize est utilisée pour cela.
+*/
 exports.update = (req, res) => {
     const reservationId = req.params.id
     Reservation.update({
@@ -63,6 +78,13 @@ exports.update = (req, res) => {
     });
 };
 
+
+// Supprimer une réservation (delete):
+/*
+    Cette fonction supprime une réservation en utilisant l'identifiant (id) 
+    fourni dans les paramètres de la requête.
+    La méthode destroy de Sequelize est utilisée pour cela.
+*/
 exports.delete = (req, res) => {
     const reservationId = req.params.id
     Reservation.destroy({
