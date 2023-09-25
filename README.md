@@ -39,6 +39,7 @@ Utilisation d'un modèle MVC
 - **ohmyzsh**
 - **git/github**
 - **SourceTree**
+- **elephantsql**
 
 ---
 
